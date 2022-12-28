@@ -33,8 +33,10 @@ namespace ValesFise_api.Controllers
             var publicKey = _configuration.GetSection("JWT:PublicKey").Value;
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             var telefono = identity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.MobilePhone).Value;
+            var codigo = identity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.PostalCode).Value;
             var app = request.IdApp;
             var dni = request.Dni;
+
             //telefono = "51967044171";
             if (telefono.Length < 11 && telefono.Substring(0, 2) != "51")
             {
@@ -64,7 +66,10 @@ namespace ValesFise_api.Controllers
 
                 if (agente != null)
                 {
-                    nroConsultas = datosFile.ConsultasAgente(telefono);
+                    if(agente.Codigo != codigo)
+                        return StatusCode(StatusCodes.Status400BadRequest, new { message = "Código de verificación no es válido", vales = "" });
+                    else 
+                        nroConsultas = datosFile.ConsultasAgente(telefono);
                 }
 
                 var datosFiseNGC = new DatosFiseNGC(_contextoNGC, _configuration );

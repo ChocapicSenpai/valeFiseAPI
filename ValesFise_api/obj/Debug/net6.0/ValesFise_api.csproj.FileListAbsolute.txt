@@ -77,3 +77,8 @@ D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\obj\Debug\net6.0\refint\ValesF
 D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\obj\Debug\net6.0\ValesFise_api.pdb
 D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\obj\Debug\net6.0\ValesFise_api.genruntimeconfig.cache
 D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\obj\Debug\net6.0\ref\ValesFise_api.dll
+D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\bin\Debug\net6.0\out\web.config
+D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\bin\Debug\net6.0\out\appsettings.Development.json
+D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\bin\Debug\net6.0\out\appsettings.json
+D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\bin\Debug\net6.0\out\ValesFise_api.deps.json
+D:\Edwin\Proyectos\VS2022\ValesFise\ValesFise_api\bin\Debug\net6.0\out\ValesFise_api.runtimeconfig.json

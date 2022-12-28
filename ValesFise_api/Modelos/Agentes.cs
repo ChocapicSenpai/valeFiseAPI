@@ -11,6 +11,7 @@ namespace ValesFise_api.Modelos
         public string Nombre { get; set; }
         public string Denominacion { get; set; }
         public short CapacidadDiaria { get; set; }
+        public string Codigo { get; set; }
         public bool Activo { get; set; }
         public string meUsuario { get; set; }
         public string meEstacion { get; set; }

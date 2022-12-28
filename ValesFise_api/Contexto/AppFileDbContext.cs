@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 using ValesFise_api.Modelos;
 
 namespace ValesFise_api.Contexto
@@ -16,6 +17,8 @@ namespace ValesFise_api.Contexto
                 u.Empresa,
                 u.Celular
             });
+
+            modelBuilder.Entity<ME_Agentes>().ToTable(tb => tb.HasTrigger("upd_ME_Accesos"));
         }
 
         //Poner aqui los modelos 

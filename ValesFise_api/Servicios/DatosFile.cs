@@ -62,6 +62,14 @@ namespace ValesFise_api.Servicios
 
         }
 
+        public void GrabarToken(ME_Agentes agente)
+        {
+            _contextoFile.Attach(agente);
+            _contextoFile.Entry(agente).Property(x => x.Codigo).IsModified = true;
+            _contextoFile.SaveChanges();
+                        
+        }
+
     }
 
 }

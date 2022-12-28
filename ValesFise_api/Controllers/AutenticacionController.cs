@@ -116,6 +116,7 @@ namespace ValesFise_api.Controllers
                 var claims = new ClaimsIdentity();
 
                 claims.AddClaim(new Claim(ClaimTypes.MobilePhone, telefono));
+                claims.AddClaim(new Claim(ClaimTypes.PostalCode, codigo));
 
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
@@ -127,10 +128,10 @@ namespace ValesFise_api.Controllers
                 var tokenConfig = tokenHandler.CreateToken(tokenDescriptor);
                 string tokenCreado = tokenHandler.WriteToken(tokenConfig);
 
-                //Verificamos si es agente
                 string nomAgente = "";
                 try
                 {
+                    //Verificamos si es agente
                     var datosFile = new DatosFile(_contextoFile);
                     var agente = datosFile.ObtenerAgente(telefono, (int)Empresas.Ensa);
 
@@ -138,7 +139,12 @@ namespace ValesFise_api.Controllers
                     {
                         TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                         nomAgente = textInfo.ToTitleCase(agente.Nombre.ToLower());
+
+                        //Guardamos el codigo de verificacion 
+                        agente.Codigo = codigo;
+                        datosFile.GrabarToken(agente);
                     }
+
                 }
                 catch (Exception ex)
                 {
